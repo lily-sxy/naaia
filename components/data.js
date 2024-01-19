@@ -1,4 +1,4 @@
-import benefitImg from "../public/img/benefit.jpg";
+import benefitImg from "../public/img/benefit_pic.jpg";
 
 const benefit= {
   title: "Membership",
