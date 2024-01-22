@@ -1,0 +1,6 @@
+{
+  "/api/route": "/api",
+  "/login/page": "/login",
+  "/membership/page": "/membership",
+  "/page": "/"
+}
