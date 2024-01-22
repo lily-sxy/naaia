@@ -20,7 +20,6 @@
   "author": "Surjith S M",
   "license": "ISC",
   "dependencies": {
-    "@clerk/nextjs": "^4.29.4",
     "@emotion/css": "^11.10.6",
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
