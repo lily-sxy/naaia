@@ -1,0 +1,9 @@
+{
+  "/auth/signin/page": "app/auth/signin/page.js",
+  "/aboutus/naaia/page": "app/aboutus/naaia/page.js",
+  "/membership/page": "app/membership/page.js",
+  "/aboutus/bylaw/page": "app/aboutus/bylaw/page.js",
+  "/aboutus/executive/page": "app/aboutus/executive/page.js",
+  "/aboutus/contact/page": "app/aboutus/contact/page.js",
+  "/page": "app/page.js"
+}
