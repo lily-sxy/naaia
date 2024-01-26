@@ -1,38 +1,64 @@
+import React from "react"
 import Link from "next/link";
 import Image from "next/image"
+import logoImg from "../public/img/logo.png";
+import Dropdown from "./dropdown";
 import { Disclosure } from "@headlessui/react";
 
-const Navbar = () => {
-  const navigation = [
-    "Home",
-    "About Us",
-    "Membership",
-  ];
+const menuItems = [
+  {
+    title: "Home",
+    route: "/"
+  },
+  {
+    title: "About Us",
+    children: [
+      {
+        title: "Who are we?",
+        route: "/aboutus/naaia"
+      },
+      {
+        title: "Current Executive",
+        route: "/aboutus/executive"
+      },
+      {
+        title: "AI Bylaw",
+        route: "/aboutus/bylaw"
+      },
+      {
+        title: "Contact NAAIA",
+        route: "/aboutus/contact"
+      }
+    ]
+  },
+  {
+    title: "Membership",
+    route: "/membership"
+  },
+]
 
-  return (
-    <div className="w-full">
-      <nav className="container fixed flex flex-wrap items-center justify-between p-1.5 w-full mx-20 lg:justify-between xl:px-0 bg-white">
-        {/* Logo  */}
-        <Disclosure>
+
+export default function Navbar () {
+   return (
+      <nav className="container sticky top-0 bg-white flex flex-wrap items-center justify-between p-3 mx-auto lg:justify-between xl:px-0">
+         <Disclosure>
           {({ open }) => (
             <>
-              <div className="flex flex-wrap items-center justify-between w-full lg:w-auto mx-100">
-                <Link href="/">
-                  <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500">
-                    <span>
-                      <Image
-                        src="/img/logo.svg"
-                        alt="NAAIA"
-                        width="32"
-                        height="32"
-                        className="w-8"
-                      />
-                    </span>
-                    <span>NAAIA</span>
-                  </span>
-                </Link>
-
-                <Disclosure.Button
+        <div className="flex flex-wrap items-center justify-between w-full lg:w-auto mx-100">
+          <Link href="/">
+          <span className="flex items-center space-x-2 text-2xl bg-indigo-600">
+            <span>
+              <Image
+                src={logoImg}
+                alt="NAAIA"
+                width="140"
+                height="70"
+              />
+            </span>
+          </span>
+          </Link>
+        
+          <Disclosure.Button
                   aria-label="Toggle Menu"
                   className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">
                   <svg
@@ -57,12 +83,17 @@ const Navbar = () => {
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
-                    {navigation.map((item, index) => (
-                      <Link key={index} href="/" className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100">
-                          {item}
-                      </Link>
-                    ))}
-                    <Link href="/" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">         
+                  {menuItems.map((item,index) => {
+                    return item.hasOwnProperty("children") ? (
+                     <Dropdown item={item} />
+                    ) : (
+                     <Link key={index} className="inline-block px-10 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none" href={item?.route || ""}>
+                       {item.title}
+                     </Link>
+                    )
+                  })}
+
+                    <Link href="/signin" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">         
                         Sign in
                     </Link>
                   </>
@@ -71,30 +102,25 @@ const Navbar = () => {
             </>
           )}
         </Disclosure>
-
-        {/* menu  */}
+  
         <div className="hidden text-center lg:flex lg:items-center">
-          <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            {navigation.map((menu, index) => (
-              <li className="mr-3 nav__item" key={index}>
-                <Link href="/" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100">
-                    {menu}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {menuItems.map((item,index) => {
+          return item.hasOwnProperty("children") ? (
+            <Dropdown item={item} />
+          ) : (
+            <Link key={index} className="inline-block px-10 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none" href={item?.route || ""}>
+              {item.title}
+            </Link>
+          )
+        })}
         </div>
 
-        <div className="hidden mr-3 space-x-4 lg:flex nav__item">
-          <Link href="/" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
+        <div className="hidden mr-3 space-x-4 lg:flex">
+          <Link href="/auth/signin" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
               Sign in
-          </Link>
-
-         
+          </Link> 
         </div>
       </nav>
-    </div>
   );
 }
 
-export default Navbar;

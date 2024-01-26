@@ -2,10 +2,10 @@
 
 import Hero from "../components/hero" ;
 import Navbar from "../components/navbar";
-
+import Footer from "../components/footer";
 import {benefit} from "../components/data";
 import Benefits from "../components/benefits";
-import Footer from "../components/footer";
+
 
 const Home = () => {
     return (
@@ -13,7 +13,7 @@ const Home = () => {
         <Navbar />
         <Hero />
         <Benefits data={benefit} />
-        <Footer />
+        <Footer/>
       </>
     );
   }

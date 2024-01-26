@@ -4,7 +4,5 @@ module.exports = {
     defaultLocale: "en",
   },
   output: "standalone",
-  experimental: {
-    appDir: true,
-  },
+  
 };

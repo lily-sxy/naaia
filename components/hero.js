@@ -22,7 +22,7 @@ const Hero = () => {
             Our goal is to make AI accessible and useful for everyone, enhancing 
             learning, collaboration, and innovation in the professional world.
             </p>
-            <Link href="/" className="px-5 py-2 text-white bg-indigo-600 rounded-md">
+            <Link href="/aboutus/naaia" className="px-5 py-2 text-white bg-indigo-600 rounded-md">
               Read More About NAAIA
           </Link>
           </div>
