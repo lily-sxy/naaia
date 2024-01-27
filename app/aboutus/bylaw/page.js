@@ -1,15 +1,12 @@
 "use client"
 
-import Navbar from "../../../components/navbar";
 import Container from "../../../components/container";
 import { bylawOne, bylawTwo,bylawThree,bylawFour,bylawFive,bylawSix,bylawSeven,bylawEight,bylawNine,bylawTen} from "../../../components/data";
 import Contents from "../../../components/content";
-import Footer from "../../../components/footer";
 
 const Bylaw = () => {
     return (
         <>
-    <Navbar />
     <Container className="flex flex-wrap justify-center max-w-full">
       <div className="flex w-full lg:w-1/2">
           <div>
@@ -29,7 +26,6 @@ const Bylaw = () => {
             <Contents data={bylawTen}/>
           </div>
         </div>
-        <Footer />
         </Container>
         </>
     );

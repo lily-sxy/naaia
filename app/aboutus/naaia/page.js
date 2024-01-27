@@ -1,15 +1,12 @@
 "use client"
 
-import Navbar from "../../../components/navbar";
 import Container from "../../../components/container";
 import { goals, activities } from "../../../components/data";
 import Contents from "../../../components/content";
-import Footer from "../../../components/footer";
 
 const Naaia = () => {
     return (
         <>
-    <Navbar />
     <Container className="w-full flex flex-wrap justify-center max-w-full">
         <div className="flex w-full lg:w-1/2">
           <div>
@@ -30,7 +27,6 @@ const Naaia = () => {
             <Contents data={activities}/>
           </div>
         </div>
-        <Footer />
         </Container>
         </>
     );

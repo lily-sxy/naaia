@@ -1,8 +1,6 @@
 "use client"
 
 import Link from "next/link";
-import Image from "next/image"
-import logoImg from "../../../public/img/logo.png";
 import { FaRegEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 
@@ -13,21 +11,7 @@ const Signin = () => {
       <div className="flex flex-col items-center justify-center w-full px-20 text-center"> 
         <div className="rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
           <div className="w-3/5 p-5">
-            <div className="py-4">
-            <div className="flex flex-wrap items-center justify-between w-full lg:w-auto mx-100">
-          <Link href="/">
-          <span className="flex items-center space-x-2 text-2xl bg-indigo-600">
-            <span>
-              <Image
-                src={logoImg}
-                alt="NAAIA"
-                width="120"
-                height="60"
-              />
-            </span>
-          </span>
-          </Link>
-          </div>
+            <div className="py-11">
               <h2 className="text-3xl font-bold text-indigo-600 mt-20 mb-5">Sign in to Account</h2>
               <div className="flex flex-col items-center">
                 <div className="bg-indigo-100 w-64 p-2 flex items-center mb-3">

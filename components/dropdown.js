@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react"
 import Link from "next/link"
 
@@ -28,7 +30,7 @@ export default function Dropdown(props) {
           {menuItems.map(item => (
             <Link
               key={item.route}
-              className="hover:bg-zinc-300 hover:text-zinc-500 px-4 py-1"
+              className="hover:bg-indigo-100 hover:text-indigo-600 px-4 py-1"
               href={item?.route || ""}
               onClick={toggle}
             >

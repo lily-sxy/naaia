@@ -1,15 +1,12 @@
 "use client"
 
-import Navbar from "../../components/navbar";
 import Container from "../../components/container";
 import { membership} from "../../components/data";
 import Contents from "../../components/content";
-import Footer from "../../components/footer";
 
 const Membership = () => {
     return (
         <>
-    <Navbar />
     <Container className="flex flex-wrap justify-center max-w-full">
         <div className="flex items-center w-full lg:w-1/2">
           <div>
@@ -20,7 +17,6 @@ const Membership = () => {
             
           </div>
         </div>
-        <Footer />
         </Container>
         </>
     );

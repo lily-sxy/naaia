@@ -1,17 +1,12 @@
 "use client"
 
-import Navbar from "../../../components/navbar";
 import Container from "../../../components/container";
 import { address, email } from "../../../components/data";
 import Contents from "../../../components/content";
-import Footer from "../../../components/footer";
-
-
 
 const Contact = () => {
     return (
         <>
-    <Navbar />
     <Container className="flex flex-wrap justify-center max-w-full">
         <div className="flex w-full lg:w-1/2">
           <div>
@@ -23,7 +18,6 @@ const Contact = () => {
             <Contents data={email}/>
           </div>
         </div>
-        <Footer />
         </Container>
         </>
     );

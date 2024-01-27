@@ -1,13 +1,10 @@
 "use client"
 
-import Navbar from "../../../components/navbar";
 import Container from "../../../components/container";
-import Footer from "../../../components/footer";
 
 const Executive = () => {
     return (
         <>
-    <Navbar />
     <Container className="flex flex-wrap justify-center max-w-full">
         <div className="flex w-full lg:w-1/2">
           <div>
@@ -16,7 +13,6 @@ const Executive = () => {
            </h1>
           </div>
         </div>
-        <Footer />
         </Container>
         </>
     );
