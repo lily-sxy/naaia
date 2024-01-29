@@ -1,3 +1,5 @@
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 import "../css/tailwind.css";
 
 export const metadata = {
@@ -5,13 +7,16 @@ export const metadata = {
     description: 'Welcome to NAAIA',
   }
 
-  export default function RootLayout({
-    
-    children,
-  }) {
+  export default function RootLayout({children}) {
     return (
       <html lang="en">
-        <body>{children}</body>
+        <body>
+        <Navbar />
+        <main>
+          {children}
+        </main>
+        <Footer/>
+        </body>
       </html>
     )
   }

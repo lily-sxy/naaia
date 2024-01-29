@@ -1,31 +1,75 @@
+"use client"
 import Link from "next/link";
 import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
+import Dropdown from "./dropdown.js"
 
+// set up navigation the array of objects that contains items of the dropdown submenu
 const Navbar = () => {
   const navigation = [
-    "Home",
-    "About Us",
-    "Membership",
+    {
+      title: "Home",
+      url: '/',
+    },
+    {
+      title: "About Us",
+      url: '/',
+      submenu: [
+        {
+          title: 'Contact',
+          url: '/aboutus/contact',
+        },
+        {
+          title: 'by-law',
+          url: '/aboutus/bylaw',
+        },
+        {
+          title: 'current executive',
+          url: '/aboutus/currentexecutive',
+        }
+      ],
+    },
+    {
+      title: "Membership",
+      url: '/',
+      submenu: [
+        {
+          title: 'Benifit',
+          url: '/membership/benifit',
+        },
+        {
+          title: 'Regular membership',
+          url: '/membership/regularmembership'
+        },
+        {
+          title: 'Student membership',
+          url: '/membership/studentmembership'
+        },
+        {
+          title: 'Corporate membership',
+          url: '/membership/corporatemembership'
+        },
+      ],
+    },
   ];
 
   return (
     <div className="w-full">
-      <nav className="container fixed flex flex-wrap items-center justify-between p-1.5 w-full mx-20 lg:justify-between xl:px-0 bg-white">
+      <nav className="container fixed flex flex-wrap items-center justify-between p-3 w-full mx-10 lg:justify-between xl:px-0 bg-white">
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (
             <>
               <div className="flex flex-wrap items-center justify-between w-full lg:w-auto mx-100">
                 <Link href="/">
-                  <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500">
+                  <span className="flex items-center space-x-6 text-2xl font-medium text-indigo-500">
                     <span>
                       <Image
                         src="/img/logo.svg"
                         alt="NAAIA"
-                        width="32"
-                        height="32"
-                        className="w-8"
+                        width={140}
+                        height={40}
+                        // className="w-8"
                       />
                     </span>
                     <span>NAAIA</span>
@@ -75,22 +119,26 @@ const Navbar = () => {
         {/* menu  */}
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            {navigation.map((menu, index) => (
-              <li className="mr-3 nav__item" key={index}>
-                <Link href="/" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100">
-                    {menu}
-                </Link>
-              </li>
-            ))}
+          {navigation.map((item) =>
+            item.hasOwnProperty("submenu") ? (
+              <Dropdown key={item.title} item={item} />
+                ) : (
+              <Link
+                key={item.title}
+                className="hover:text-blue-500 inline-block px-10 py-6"
+                href={item?.url || ""}
+              >
+              {item.title}
+              </Link>
+          )
+        )}
           </ul>
         </div>
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
-          <Link href="/" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
+          <Link href="/" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-">
               Sign in
           </Link>
-
-         
         </div>
       </nav>
     </div>
