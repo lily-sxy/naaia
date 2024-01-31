@@ -12,7 +12,7 @@ export default function Footer() {
     },
     {
       title: "About Us",
-      route: "/aboutus/naaia"
+      route: "/about-us"
     },
     {
       title: "Membership",
@@ -43,8 +43,8 @@ export default function Footer() {
       
           <div>
             <div className="flex flex-wrap items-center justify-between w-full -mt-2 -ml-3 lg:ml-0">
-              {navigation.map((item, index) => (
-                <Link key={index} href={item?.route || ""} className="w-full px-4 py-2 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">                 
+              {navigation.map((item) => (
+                <Link key={item.route} href={item?.route || ""} className="w-full px-4 py-2 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">                 
                     {item.title}
                 </Link>
               ))}

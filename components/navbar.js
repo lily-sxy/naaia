@@ -17,19 +17,19 @@ const menuItems = [
     children: [
       {
         title: "Who are we?",
-        route: "/aboutus/naaia"
+        route: "/about-us"
       },
       {
-        title: "Current Executive",
-        route: "/aboutus/executive"
+        title: "Executive",
+        route: "/about-us/executive"
       },
       {
         title: "AI Bylaw",
-        route: "/aboutus/bylaw"
+        route: "/about-us/bylaw"
       },
       {
-        title: "Contact NAAIA",
-        route: "/aboutus/contact"
+        title: "Contact",
+        route: "/about-us/contact"
       }
     ]
   },
@@ -45,7 +45,7 @@ export default function Navbar () {
       <nav className="container sticky top-0 bg-white flex flex-wrap items-center justify-between p-3 mx-auto lg:justify-between xl:px-0">
          <Disclosure>
           {({ open }) => (
-            <>
+          
         <div className="flex flex-wrap items-center justify-between w-full lg:w-auto mx-100">
           <Link href="/">
           <span className="flex items-center space-x-2 text-2xl bg-indigo-600">
@@ -84,10 +84,9 @@ export default function Navbar () {
                 </Disclosure.Button>
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
-                  <>
-                  {menuItems.map((item,index) => {
+                {menuItems.map((item,index) => {
                     return item.hasOwnProperty("children") ? (
-                     <Dropdown item={item} />
+                     <Dropdown key={item} item={item} />
                     ) : (
                      <Link key={index} className="inline-block px-10 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none" href={item?.route || ""}>
                        {item.title}
@@ -95,30 +94,29 @@ export default function Navbar () {
                     )
                   })}
 
-                    <Link href="/signin" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">         
+                    <Link href="/sign-in" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">         
                         Sign in
                     </Link>
-                  </>
                 </Disclosure.Panel>
               </div>
-            </>
+          
           )}
         </Disclosure>
   
         <div className="hidden text-center lg:flex lg:items-center">
-        {menuItems.map((item,index) => {
+        {menuItems.map((item) => {
           return item.hasOwnProperty("children") ? (
-            <Dropdown item={item} />
-          ) : (
-            <Link key={index} className="inline-block px-10 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none" href={item?.route || ""}>
-              {item.title}
-            </Link>
+            <Dropdown key={item} item={item} />
+            ) : (
+              <Link key={item.title} className="inline-block px-10 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none" href={item?.route || ""}>
+                {item.title}
+              </Link>
           )
         })}
         </div>
 
         <div className="hidden mr-3 space-x-4 lg:flex">
-          <Link href="/auth/signin" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
+          <Link href="/sign-in" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
               Sign in
           </Link> 
         </div>

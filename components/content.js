@@ -11,9 +11,12 @@ const Contents = (props) => {
     
           <div>
             <div className="flex flex-col w-full mt-2">
-              <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl">
+              <h3 className="max-w-2xl mt-3 text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-2xl">
                 {data.title}
               </h3>
+              <p className="max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl">
+                {data.desc}
+              </p>
             </div>
 
             <div className="w-full mt-2">
@@ -38,7 +41,7 @@ function Content(props) {
           
         </div>
         <div>
-          <h4 className="text-xl font-medium text-gray-800">
+          <h4 className="text-base font-medium text-gray-800">
             {props.title}
           </h4>
         </div>
