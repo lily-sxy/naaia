@@ -49,7 +49,7 @@ const Benefits = (props) => {
               ))}
             </div>
             <div className="w-full mt-5">
-                <Link href="/" className="w-full px-6 py-2 mt-5 text-center text-white bg-indigo-600 rounded-md">         
+                <Link href="/membership" className="w-full px-6 py-2 mt-5 text-center text-white bg-indigo-600 rounded-md">         
                         Become A Member
                 </Link>
             </div>
