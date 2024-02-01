@@ -4,8 +4,8 @@ import React from "react"
 import Link from "next/link";
 import Image from "next/image"
 import logoImg from "../public/img/logo.png";
-import Dropdown from "./dropdown";
 import { Disclosure } from "@headlessui/react";
+import Dropdown from "./dropdown.js"
 
 const menuItems = [
   {
