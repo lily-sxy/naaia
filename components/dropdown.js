@@ -6,8 +6,8 @@ function Dropdown(props) {
   const { item } = props;
   const [isOpen, setIsOpen] = useState(false);
   const menuItems = item?.children? item.children : [];
-  const hoverLink = 'bg-highlight w-[130px] rounded-md hover:bg-blue-200 m-0 p-0 pr-0';
-  const activeHoverLink = 'rounded-md w-[130px] bg-indigo-100 m-0 p-0 pr-0';
+  const hoverLink = 'bg-highlight w-[130px] text-lg font-normal rounded-md hover:bg-blue-100 m-0 p-0 pr-0';
+  const activeHoverLink = 'rounded-md w-[130px] text-lg font-normal bg-indigo-100 m-0 p-0 pr-0';
 
   const toggle = () => {
     setIsOpen((old) => !old);
@@ -32,7 +32,7 @@ function Dropdown(props) {
         {item.title} <span className="ml-1" style={{ color: 'blue' }}>{isOpen ? '\u25B2' : '\u25BC'}</span>
       </button>
       <div
-        className={`absolute top-full z-30 w-[170px] h-[${menuHeight}px] flex flex-col py-5 bg-indigo-100 rounded-md gap-4 ${transClass}`}
+        className={`absolute top-full z-30 w-[170px] h-[${menuHeight}px] flex flex-col py-5 bg-indigo-100 rounded-md gap-1.5 ${transClass}`}
         onMouseEnter={() => setIsOpen(true)}
       >
         {menuItems.map((menuItem) => (
