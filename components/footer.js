@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "../public/img/logo.png";
+import logoImg from "../public/img/logo.png";
 import Link from "next/link";
 import React from "react";
 import Container from "./container";
@@ -31,7 +31,7 @@ export default function Footer() {
               <Link href="/" className="flex items-center space-x-2 text-2xl font-medium text-indigo-500">
                 <span className="bg-indigo-600">
                   <Image
-                    src={Logo}
+                    src={logoImg}
                     alt="NAAIA"
                     width="140"
                     height="70"
