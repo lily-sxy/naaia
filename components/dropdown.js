@@ -5,7 +5,7 @@ import Link from 'next/link';
 function Dropdown(props) {
   const { item } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const menuItems = item?.submenu ? item.submenu : [];
+  const menuItems = item?.children? item.children : [];
   const hoverLink = 'bg-highlight w-[130px] rounded-md hover:bg-blue-500 m-0 p-0 pr-0';
   const activeHoverLink = 'rounded-md w-[130px] bg-blue-200 m-0 p-0 pr-0';
 
@@ -36,9 +36,9 @@ function Dropdown(props) {
       >
         {menuItems.map((menuItem) => (
           <Link
-            key={menuItem.url}
+            key={menuItem.route}
             className="hover:bg-white hover:text-zinc-500 px-4 py-1 text-left"
-            href={menuItem?.url || ''}
+            href={menuItem?.route || ''}
             onClick={toggle}
           >
             {menuItem.title}

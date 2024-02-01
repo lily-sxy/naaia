@@ -1,7 +1,7 @@
 import Container from "../../../components/container";
-import { address, email } from "../../../components/data";
 
 const Contact = () => {
+   
     return (
         <>
             <Container className="flex flex-wrap justify-center max-w-full">
