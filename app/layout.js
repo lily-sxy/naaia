@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 import Breadcrumb from "../components/breadcrumb";
 
 export const metadata = {
-  title: "North America Artificial Intelligence Association",
+  title: "North America Artificial Intelligence (AI) Association",
   description: "Welcome to NAAIA"
 }
 

@@ -16,7 +16,7 @@ const Membership = () => {
               Membership
            </h1>
            <p className="py-5 text-lg leading-normal text-gray-500 lg:text-lg xl:text-lg">
-           Members of the North America Artificial Intelligence Association (NAAIA) 
+           Members of the North America AI Association (NAAIA) 
            enjoy a range of benefits tailored to enhance their engagement with the AI community.
             </p>
             <Contents data={membership}/>

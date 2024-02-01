@@ -2,7 +2,7 @@ import benefitImg from "../public/img/benefit_pic.jpg";
 
 const benefit= {
   title: "Membership",
-  desc: "Members of the North America Artificial Intelligence Association (NAAIA) enjoy a range of benefits tailored to enhance their engagement with the AI community:",
+  desc: "Members of the North America AI Association (NAAIA) enjoy a range of benefits tailored to enhance their engagement with the AI community:",
   image: benefitImg,
   bullets: [
     {
@@ -94,7 +94,7 @@ const email= {
   title: "Email",
   bullets: [
     {
-      title: "naaia@naaia.org ",
+      title: " ",
     },
   ],
 };

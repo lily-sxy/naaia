@@ -10,10 +10,10 @@ const Hero = () => {
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
             <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight">
-              Welcome to NAAIA！
+              Welcome to NAAIA!
             </h1>
             <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-xl">
-            The North America Artificial Intelligence Association aims to 
+            The North America Artificial Intelligence (AI) Association aims to 
             advance and promote the AI research, education, spanning from 
             elementary levels to university and career training, technology 
             industrialization, and responsible use of artificial intelligence 

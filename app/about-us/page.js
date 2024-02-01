@@ -14,7 +14,7 @@ const About = () => {
               Who are we?
            </h1>
            <p className="py-5 text-lg leading-normal text-gray-500 lg:text-lg xl:text-lg">
-            The North America Artificial Intelligence Association aims to 
+            The North America Artificial Intelligence (AI) Association (NAAIA) aims to 
             advance and promote the AI research, education, spanning from 
             elementary levels to university and career training, technology 
             industrialization, and responsible use of artificial intelligence 
