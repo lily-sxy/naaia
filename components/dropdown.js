@@ -1,51 +1,54 @@
 "use client"
+import React, { useState } from 'react'
+import Link from 'next/link';
 
-import React, { useState } from "react"
-import Link from "next/link"
-
-export default function Dropdown(props) {
-  const { item } = props
-  const [isOpen, setIsOpen] = useState(false)
-  const menuItems = item?.children ? item.children : []
+function Dropdown(props) {
+  const { item } = props;
+  const [isOpen, setIsOpen] = useState(false);
+  const menuItems = item?.children? item.children : [];
+  const hoverLink = 'bg-highlight w-[130px] text-lg font-normal rounded-md hover:bg-blue-100 m-0 p-0 pr-0';
+  const activeHoverLink = 'rounded-md w-[130px] text-lg font-normal bg-indigo-100 m-0 p-0 pr-0';
 
   const toggle = () => {
-    setIsOpen(old => !old)
-  }
+    setIsOpen((old) => !old);
+  };
 
-  const transClass = isOpen ? "flex" : "hidden"
+  const transClass = isOpen ? 'flex' : 'hidden';
   
+  // calculate the number of dropdown menu items, make a dynamic height of dropdown menu instead of fixed height for possible future more items coming
+  const numSubmenus = menuItems.length;
+  const submenuHeight = menuItems[0]?.offsetHeight || 0;
+  // Height equals the number of submenus times each submenu's height
+  const menuHeight = numSubmenus * submenuHeight;
+  
+
+  // If mouse hover on button then open dropdown, changes the arrow to up-arrow, when dropdown closed changes arrow back to original state
   return (
-    <>
-      <div className="relative">
-        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="inline-flex items-center px-10 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none" type="button" onClick={toggle} 
-        >
-          {item.title}
-          <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-          </svg>
-        </button>
-       
-        <div id="dropdown" 
-          className={`absolute top-18 z-30 w-[178px] min-h-[100px] inline-block text-left flex-col py-4 bg-white shadow-2xl rounded-md ${transClass}`}>
-          {menuItems.map(item => (
-            <Link
-              key={item.route}
-              className="hover:bg-indigo-100 hover:text-indigo-600 px-10 py-1"
-              href={item?.route || ""}
-              onClick={toggle}
-            >
-              {item.title}
-            </Link>
-            ))}
-        </div> 
-       
+    <div className="relative mx-10 my-4" onMouseLeave={() => setIsOpen(false)}>
+      <button 
+        className={isOpen ? activeHoverLink : hoverLink} 
+        onMouseEnter={() => setIsOpen(true)}
+      >
+        {item.title} <span className="ml-1" style={{ color: 'blue' }}>{isOpen ? '\u25B2' : '\u25BC'}</span>
+      </button>
+      <div
+        className={`absolute top-full z-30 w-[170px] h-[${menuHeight}px] flex flex-col py-5 bg-indigo-100 rounded-md gap-1.5 ${transClass}`}
+        onMouseEnter={() => setIsOpen(true)}
+      >
+        {menuItems.map((menuItem) => (
+          <Link
+            key={menuItem.route}
+            className="hover:bg-white hover:text-zinc-500 px-4 py-1 text-left"
+            href={menuItem?.route || ''}
+            onClick={toggle}
+          >
+            {menuItem.title}
+          </Link>
+        ))}
       </div>
-      {isOpen ? (
-        <div
-          className="fixed top-0 right-0 bottom-0 left-0 z-20"
-          onClick={toggle}
-        ></div>
-      ) : (<></>)}
-    </>
-  )
+    </div>
+  );
 }
+
+
+export default Dropdown;
