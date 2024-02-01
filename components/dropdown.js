@@ -29,7 +29,7 @@ export default function Dropdown(props) {
           className={`absolute top-18 z-30 w-[178px] min-h-[100px] inline-block text-left flex-col py-4 bg-white shadow-2xl rounded-md ${transClass}`}>
           {menuItems.map(item => (
             <Link
-              key={item.ruote}
+              key={item.route}
               className="hover:bg-indigo-100 hover:text-indigo-600 px-10 py-1"
               href={item?.route || ""}
               onClick={toggle}

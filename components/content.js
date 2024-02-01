@@ -7,19 +7,19 @@ const Contents = (props) => {
   const { data } = props;
   return (
     <>
-      <Container className="flex flex-wrap mt-1 mb-1 lg:gap-5 lg:flex-nowrap">
+      <Container className="flex flex-wrap lg:flex-nowrap">
     
           <div>
-            <div className="flex flex-col w-full mt-2">
-              <h3 className="max-w-2xl mt-3 text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-2xl">
+            <div className="flex flex-col w-full">
+              <h3 className="max-w-2xl text-2xl font-bold leading-normal tracking-tight text-gray-800 lg:leading-tight lg:text-xl">
                 {data.title}
               </h3>
-              <p className="max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl">
+              <p className="max-w-2xl py-2 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl">
                 {data.desc}
               </p>
             </div>
 
-            <div className="w-full mt-2">
+            <div className="w-full">
               {data.bullets.map((item, index) => (
                 <Content key={index} title={item.title} icon={item.icon}>
                   {item.desc}

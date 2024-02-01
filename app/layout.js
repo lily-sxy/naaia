@@ -13,7 +13,7 @@ export const metadata = {
     return (
       <html lang="en">
        <body>
-        <Navbar />
+        <Navbar/>
         <Breadcrumb 
           homeElement={"Home"}
           separator={<span> / </span>}
