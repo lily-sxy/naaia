@@ -1,46 +1,57 @@
-import Link from "next/link";
 import Image from "next/image";
+import logoImg from "../public/img/logo.png";
+import Link from "next/link";
 import React from "react";
 import Container from "./container";
 
 export default function Footer() {
   const navigation = [
-    "Home",
-    "About Us",
-    "Membership",
+    {
+      title: "Home",
+      route: "/"
+    },
+    {
+      title: "About Us",
+      route: "/about-us"
+    },
+    {
+      title: "Membership",
+      route: "/membership"
+    },
+    
   ];
   const legal = ["Terms", "Privacy", "Legal"];
   return (
     <div className="relative">
       <Container>
         <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 lg:grid-cols-5">
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2"> 
             <div>
               {" "}
               <Link href="/" className="flex items-center space-x-2 text-2xl font-medium text-indigo-500">
-                    <Image
-                      src="/img/logo.svg"
-                      alt="N"
-                      width="32"
-                      height="32"
-                      className="w-8"
-                    />
-                  <span>NAAIA</span>
+                <span className="bg-indigo-600">
+                  <Image
+                    src={logoImg}
+                    alt="NAAIA"
+                    width="140"
+                    height="70"
+                  />
+                </span>
               </Link>
             </div>
           </div>
-
+      
           <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {navigation.map((item, index) => (
-                <Link key={index} href="/" className="w-full px-4 py-2 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">                 
-                    {item}
+            <div className="flex flex-wrap items-center justify-between w-full -mt-2 -ml-3 lg:ml-0">
+              {navigation.map((item) => (
+                <Link key={item.route} href={item?.route || ""} className="w-full px-4 py-2 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">                 
+                    {item.title}
                 </Link>
               ))}
             </div>
           </div>
           <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
+            <div className="flex flex-wrap w-full items-center justify-between -mt-2 -ml-3 lg:ml-0">
               {legal.map((item, index) => (
                 <Link key={index} href="/" className="w-full px-4 py-2 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">      
                     {item}
