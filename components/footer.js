@@ -3,6 +3,7 @@ import logoImg from "../public/img/logo.png";
 import Link from "next/link";
 import React from "react";
 import Container from "./container";
+import {FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope} from 'react-icons/fa'
 
 export default function Footer() {
   const navigation = [
@@ -24,65 +25,83 @@ export default function Footer() {
   return (
     <div className="relative">
       <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 lg:grid-cols-5">
-          <div className="lg:col-span-2"> 
-            <div>
-              {" "}
-              <Link href="/" className="flex items-center space-x-2 text-2xl font-medium text-indigo-500">
-                <span className="bg-indigo-600">
-                  <Image
-                    src={logoImg}
-                    alt="NAAIA"
-                    width="140"
-                    height="70"
-                  />
-                </span>
-              </Link>
-            </div>
-          </div>
-      
-          <div>
-            <div className="flex flex-wrap items-center justify-between w-full -mt-2 -ml-3 lg:ml-0">
-              {navigation.map((item) => (
-                <Link key={item.route} href={item?.route || ""} className="w-full px-4 py-2 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">                 
-                    {item.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="flex flex-wrap w-full items-center justify-between -mt-2 -ml-3 lg:ml-0">
-              {legal.map((item, index) => (
-                <Link key={index} href="/" className="w-full px-4 py-2 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">      
-                    {item}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="">
-            <div>Follow us</div>
-            <div className="flex mt-5 space-x-5 text-gray-400">
-              <a
-                href="https://instagram.com/"
-                target="_blank"
-                rel="noopener">
-                <span className="sr-only">Instagram</span>
-                <Instagram />
-              </a>
-              <a
-                href="https://linkedin.com/"
-                target="_blank"
-                rel="noopener">
-                <span className="sr-only">Linkedin</span>
-                <Linkedin />
-              </a>
-            </div>
-          </div>
+      <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 lg:grid-cols-12">
+      <div className="lg:col-span-2">
+        <div>
+          <Link href="/" className="flex items-center space-x-2 text-2xl font-medium text-indigo-500">
+            <span className="bg-indigo-600">
+              <Image
+                src={logoImg}
+                alt="NAAIA"
+                width="140"
+                height="70"
+              />
+            </span>
+          </Link>
         </div>
+      </div>
 
-        <div className="my-10 text-sm text-center text-gray-600">
-          Copyright © {new Date().getFullYear()}. North America Artificial Intelligence Association
+      <div className="lg:col-span-2">
+        <div className="flex flex-wrap items-center justify-between w-full -mt-2 -ml-3 lg:ml-0">
+          {navigation.map((item) => (
+            <Link key={item.route} href={item?.route || ""} className="w-full px-4 py-2 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">
+              {item.title}
+            </Link>
+          ))}
         </div>
+      </div>
+
+      <div className="lg:col-span-2">
+        <div className="flex flex-wrap w-full items-center justify-between -mt-2 -ml-3 lg:ml-0">
+          {legal.map((item, index) => (
+            <Link key={index} href="/" className="w-full px-4 py-2 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none">
+              {item}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="lg:col-span-2">
+        <div>
+          <div>Follow us</div>
+          <div className="flex mt-2 space-x-5 text-gray-400">
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              rel="noopener">
+              <span className="sr-only">Instagram</span>
+              <Instagram />
+            </a>
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              rel="noopener">
+              <span className="sr-only">Linkedin</span>
+              <Linkedin />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:col-span-2">
+        <div>
+          <div>Contact us</div>
+          <div className="flex flex-wrap w-full items-center justify-between text-gray-400">
+            <div className="mb-2">
+            <div>contact@na-aia.org</div>
+            </div>
+            <div>
+              <div>3507 Breakwater Ave,</div> 
+              <div>Hayward,</div> 
+              CA 94545</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="my-10 text-sm text-center text-gray-600">
+      Copyright © {new Date().getFullYear()}. North America Artificial Intelligence Association
+    </div>
       </Container>
     </div>
   );
