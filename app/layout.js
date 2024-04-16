@@ -13,6 +13,7 @@ export const metadata = {
     return (
       <html lang="en">
        <body>
+
         <Navbar/>
         <Breadcrumb 
           homeElement={"Home"}
@@ -22,8 +23,11 @@ export const metadata = {
           listClasses="capitalize hover:underline mx-2"
           capitalizeLinks
         />
-        <main>{children}</main>
+        <main>
+         {children}
+        </main>
         <Footer />
+
       </body>
       </html>
     )
